@@ -1,0 +1,11 @@
+# Regnum Decimarum - Robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /*.json
+
+# Crawl-delay (optional: specify delay between requests)
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://jureljubodev.github.io/regnumdecimarum-web/sitemap.xml

@@ -1,0 +1,120 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 1.5rem 1.8rem 2rem;
+  color: var(--text-muted);
+}
+
+.footerCopy p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.linkButton {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.linkButton:hover,
+.linkButton:focus-visible {
+  color: #ffffff;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(2, 2, 2, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modalContent {
+  width: min(100%, 650px);
+  max-height: 80vh;
+  background: rgba(8, 8, 8, 0.98);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 1.4rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  padding: 1.75rem;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  text-align: center;
+}
+
+.modalClose {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modalClose:hover,
+.modalClose:focus-visible {
+  color: #ffffff;
+}
+
+.policyBody {
+  display: grid;
+  gap: 1rem;
+}
+
+.policyBody p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modalContent {
+    width: 100%;
+    max-height: 90vh;
+    padding: 1.3rem;
+    border-radius: 1.2rem;
+  }
+}

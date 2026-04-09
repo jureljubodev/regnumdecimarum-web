@@ -1,0 +1,56 @@
+.cookieBanner {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%) translateY(120%);
+  width: min(92vw, 58rem);
+  background: rgba(8,8,8,0.98);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1.1rem;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease;
+  z-index: 30;
+}
+
+.cookieBanner.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.cookieBanner p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.cookieBanner a {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.cookieBanner button {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: #fff;
+  color: #050505;
+  border-radius: 999px;
+  padding: 0.85rem 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .cookieBanner {
+    left: 1rem;
+    right: 1rem;
+    transform: translateY(120%);
+    width: auto;
+  }
+}

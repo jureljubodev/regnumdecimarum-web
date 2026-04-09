@@ -1,0 +1,147 @@
+.section {
+  padding: 5.5rem 1.8rem 4rem;
+}
+
+.sectionHead {
+  max-width: 48rem;
+  margin-bottom: 2rem;
+}
+
+.sectionHead h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.05;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.8rem;
+}
+
+.contactCard {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1.4rem;
+  padding: 1.8rem;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.contactCard h3 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.contactCard p {
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.contactList {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contactList div {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.02);
+}
+
+.contactList strong {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.contactForm {
+  display: grid;
+  gap: 1.2rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1.75rem;
+  padding: 1.75rem;
+}
+
+.contactForm label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.32);
+  background: rgba(255,255,255,0.08);
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  background: #fff;
+  color: #050505;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+}
+
+.eyebrow {
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .section {
+    padding: 4rem 1.4rem 2rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 3.4rem 1rem 1.8rem;
+  }
+
+  .contactCard,
+  .contactForm {
+    padding: 1.4rem;
+  }
+
+  .contactCard h3 {
+    font-size: 1.75rem;
+  }
+
+  .contactForm label {
+    font-size: 0.92rem;
+  }
+}

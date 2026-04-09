@@ -1,0 +1,257 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.8rem;
+  backdrop-filter: blur(24px);
+  background: rgba(3,3,3,0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.topbarActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brandLink {
+  display: inline-flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+}
+
+.brandMark {
+  width: 2.9rem;
+  height: 2.9rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 0.85rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  background: rgba(255,255,255,0.04);
+  text-transform: uppercase;
+}
+
+.brandTitle {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.navbar {
+  display: flex;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 1px;
+  background: var(--text);
+  transition: width 0.28s ease;
+}
+
+.navbar a:hover::after,
+.navbar a:focus-visible::after {
+  width: 100%;
+}
+
+.langDropdownWrapper {
+  position: relative;
+}
+
+.langCurrent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.langCurrent:hover,
+.langCurrent:focus-visible {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+}
+
+.langCurrent .dropdownArrow {
+  font-size: 0.85rem;
+}
+
+.langDropdown {
+  position: absolute;
+  top: calc(100% + 0.7rem);
+  right: 0;
+  width: max-content;
+  min-width: 12rem;
+  background: rgba(5,5,5,0.98);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 1rem;
+  padding: 0.45rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease;
+}
+
+.langDropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.langOption {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.langOption:hover,
+.langOption.active {
+  background: rgba(255,255,255,0.08);
+}
+
+.menuToggle {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: transparent;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuToggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menuToggle span:nth-child(1) {
+  top: 0.55rem;
+}
+
+.menuToggle span:nth-child(2) {
+  top: 1.15rem;
+}
+
+.menuToggle span:nth-child(3) {
+  top: 1.75rem;
+}
+
+.menuToggle.open span:nth-child(1) {
+  transform: translateY(0.6rem) rotate(45deg);
+}
+
+.menuToggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuToggle.open span:nth-child(3) {
+  transform: translateY(-0.6rem) rotate(-45deg);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .topbar {
+    padding: 1rem 1.2rem;
+  }
+
+  .brandTitle {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0.9rem 1rem 0.75rem;
+  }
+
+  .topbarActions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .navbar {
+    position: absolute;
+    top: calc(100% + 0.9rem);
+    right: 1.6rem;
+    left: 1.6rem;
+    flex-direction: column;
+    background: rgba(3,3,3,0.96);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 1.2rem;
+    padding: 1rem 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+  }
+
+  .navbar.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navbar a {
+    padding: 0.9rem 0.75rem;
+    width: 100%;
+  }
+
+  .langDropdownWrapper {
+    order: 3;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menuToggle {
+    display: inline-flex;
+  }
+}

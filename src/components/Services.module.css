@@ -1,0 +1,195 @@
+.section {
+  padding: 5.5rem 1.8rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionHead {
+  max-width: 48rem;
+  margin-bottom: 2rem;
+}
+
+.sectionHead h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.05;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.serviceCard {
+  position: relative;
+  padding: 0;
+  min-height: 300px;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top, rgba(255, 224, 168, 0.12), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 10, 10, 0.08) 0%, rgba(8, 8, 8, 0.4) 100%),
+    linear-gradient(135deg, rgba(255, 210, 144, 0.1), transparent 38%, rgba(255, 255, 255, 0.03) 100%);
+  z-index: 1;
+  transition: background 0.35s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.24);
+}
+
+.serviceCard:hover::before {
+  background:
+    linear-gradient(180deg, rgba(10, 10, 10, 0.06) 0%, rgba(8, 8, 8, 0.32) 100%),
+    linear-gradient(135deg, rgba(255, 210, 144, 0.14), transparent 38%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.serviceContent {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  background: rgba(6, 6, 6, 0.22);
+  border-radius: 1.1rem;
+}
+
+.iconShell {
+  width: 4.8rem;
+  height: 4.8rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.serviceIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #f0dfb0;
+}
+
+.serviceCard h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  max-width: 18ch;
+}
+
+.readMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.3rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #050505;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  width: fit-content;
+}
+
+.readMoreBtn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.readMoreBtn:hover {
+  background: white;
+  transform: translateY(-2px);
+}
+
+.eyebrow {
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .section {
+    padding: 4rem 1.4rem 2rem;
+  }
+
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceCard {
+    min-height: 280px;
+  }
+
+  .serviceContent {
+    padding: 1.8rem 1.4rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 3.4rem 1rem 1.8rem;
+  }
+
+  .serviceCard {
+    min-height: 250px;
+  }
+
+  .serviceContent {
+    padding: 1.4rem 1rem;
+  }
+
+  .iconShell {
+    width: 4.1rem;
+    height: 4.1rem;
+  }
+
+  .serviceIcon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .serviceCard h3 {
+    font-size: 1.1rem;
+  }
+
+  .readMoreBtn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+}
