@@ -111,6 +111,54 @@ function NotFoundPage({ currentLang, handleLanguageChange, showLoader, loaded }:
   );
 }
 
+function ThankYouPage({ currentLang, handleLanguageChange, showLoader, loaded, forcedLang }: {
+  currentLang: string;
+  handleLanguageChange: (lang: string) => void;
+  showLoader: boolean;
+  loaded: boolean;
+  forcedLang?: 'en' | 'hr';
+}) {
+  const lang = forcedLang ?? (currentLang as 'en' | 'hr');
+  const content = {
+    en: {
+      title: 'Thank You',
+      subtitle: 'Your message has been sent.',
+      text: 'We appreciate your inquiry and will get back to you shortly.',
+      cta: 'Back to Home'
+    },
+    hr: {
+      title: 'Hvala',
+      subtitle: 'Vaša poruka je uspješno poslana.',
+      text: 'Hvala na upitu. Javit ćemo vam se u najkraćem mogućem roku.',
+      cta: 'Natrag na početnu'
+    }
+  };
+
+  return (
+    <>
+      {showLoader && (
+        <div className={`page-loader ${loaded ? 'hide' : ''}`}>
+          <div className="loader-ring"></div>
+        </div>
+      )}
+      <div className={`page-shell ${loaded ? 'visible' : ''}`}>
+        <Topbar onLanguageChange={handleLanguageChange} />
+        <main className="notFoundWrap">
+          <section className="notFoundCard">
+            <p className="notFoundCode">✓</p>
+            <h1>{content[lang].title}</h1>
+            <p><strong>{content[lang].subtitle}</strong></p>
+            <p>{content[lang].text}</p>
+            <Link to="/" className="notFoundButton">{content[lang].cta}</Link>
+          </section>
+        </main>
+        <Footer currentLang={currentLang} />
+        <CookieBanner />
+      </div>
+    </>
+  );
+}
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
@@ -139,6 +187,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage currentLang={currentLang} handleLanguageChange={handleLanguageChange} showLoader={showLoader} loaded={loaded} />} />
         <Route path="/service/:serviceId" element={<ServicePageWrapper currentLang={currentLang} handleLanguageChange={handleLanguageChange} showLoader={showLoader} loaded={loaded} />} />
+        <Route path="/thank-you" element={<ThankYouPage currentLang={currentLang} handleLanguageChange={handleLanguageChange} showLoader={showLoader} loaded={loaded} forcedLang="en" />} />
+        <Route path="/hvala" element={<ThankYouPage currentLang={currentLang} handleLanguageChange={handleLanguageChange} showLoader={showLoader} loaded={loaded} forcedLang="hr" />} />
         <Route path="*" element={<NotFoundPage currentLang={currentLang} handleLanguageChange={handleLanguageChange} showLoader={showLoader} loaded={loaded} />} />
       </Routes>
     </BrowserRouter>

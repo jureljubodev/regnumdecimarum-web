@@ -27,12 +27,12 @@ const Contact: React.FC<ContactProps> = ({ currentLang = 'en' }) => {
     },
     contact: {
       email: { en: 'Email:', hr: 'Email:' },
-      phone: { en: 'Phone:', hr: 'Telefon:' },
       location: { en: 'Location:', hr: 'Lokacija:' }
     }
   };
 
   const lang = currentLang as 'en' | 'hr';
+  const thankYouPath = `${import.meta.env.BASE_URL}${lang === 'hr' ? 'hvala' : 'thank-you'}`;
 
   return (
     <section className={styles.section} id="contact">
@@ -51,12 +51,8 @@ const Contact: React.FC<ContactProps> = ({ currentLang = 'en' }) => {
               <strong>hello@regnumdecimarum.com</strong>
             </div>
             <div>
-              <span>{content.contact.phone[lang]}</span>
-              <strong>+385 99 123 4567</strong>
-            </div>
-            <div>
               <span>{content.contact.location[lang]}</span>
-              <strong>Zagreb, Croatia</strong>
+              <strong>Ilica 75, 10000 Zagreb</strong>
             </div>
           </div>
         </div>
@@ -66,11 +62,13 @@ const Contact: React.FC<ContactProps> = ({ currentLang = 'en' }) => {
             className={styles.contactForm}
             name="contact"
             method="POST"
+            action={thankYouPath}
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="bot-field" />
+            <input type="hidden" name="language" value={lang} />
             <label>
               <span>{content.labels.name[lang]}</span>
               <input type="text" name="name" placeholder="" required />
