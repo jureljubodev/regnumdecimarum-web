@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+const isGitHubActionsBuild = process.env.GITHUB_ACTIONS === 'true'
+
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
   plugins: [react()],
-  base: mode === 'production' ? '/regnumdecimarum-web/' : '/',
+  base: isGitHubActionsBuild ? '/regnumdecimarum-web/' : '/',
 }))
