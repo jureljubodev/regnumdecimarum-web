@@ -104,7 +104,12 @@ const ServicePage: React.FC<ServicePageProps> = ({ currentLang = 'en' }) => {
         en: ['Regular Maintenance', 'Deep Cleaning', 'System Inspection', 'Filter Replacement', 'Performance Optimization', 'Emergency Service'],
         hr: ['Redovno Održavanje', 'Duboko Čišćenje', 'Pregled Sustava', 'Zamjena Filtera', 'Optimizacija Performansi', 'Hitna Usluga']
       },
-      image: acImg
+      image: acImg,
+      website: 'https://www.dapt-ac.com',
+      websiteLabel: {
+        en: 'Visit DAPT AC',
+        hr: 'Posjetite DAPT AC'
+      }
     }
   };
 
@@ -134,11 +139,6 @@ const ServicePage: React.FC<ServicePageProps> = ({ currentLang = 'en' }) => {
 
         <div className={styles.content}>
           <p className={styles.description}>{service.description[lang]}</p>
-          
-          <div className={styles.fullDescription}>
-            <h2>{lang === 'en' ? 'About This Service' : 'O ovoj Usluzi'}</h2>
-            <p>{service.fullDescription[lang]}</p>
-          </div>
 
           <div className={styles.cta}>
             {'website' in service && service.website ? (
