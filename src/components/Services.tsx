@@ -1,8 +1,8 @@
 import React from "react";
 import {
   AirVent,
-  BriefcaseBusiness,
   CarFront,
+  Hammer,
   MonitorSmartphone,
   UtensilsCrossed,
 } from "lucide-react";
@@ -17,7 +17,7 @@ const Services: React.FC<ServicesProps> = ({ currentLang }) => {
   const serviceIcons = {
     digital: MonitorSmartphone,
     hospitality: UtensilsCrossed,
-    interior: BriefcaseBusiness,
+    interior: Hammer,
     transport: CarFront,
     ac: AirVent,
   };
