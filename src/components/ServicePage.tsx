@@ -34,7 +34,12 @@ const ServicePage: React.FC<ServicePageProps> = ({ currentLang = 'en' }) => {
         en: ['Web Development', 'Brand Identity', 'Marketing Strategy', 'Growth Systems', 'Digital Analytics', 'SEO Optimization'],
         hr: ['Web Razvoj', 'Brend Identitet', 'Marketinška Strategija', 'Sustavi Rasta', 'Digitalna Analitika', 'SEO Optimizacija']
       },
-      image: digitalImg
+      image: digitalImg,
+      website: 'https://jureljubodev.github.io/portfolio/',
+      websiteLabel: {
+        en: 'View Portfolio',
+        hr: 'Pogledajte Portfolio'
+      }
     },
     hospitality: {
       title: { en: 'PalachinqO', hr: 'PalachinqO' },
@@ -135,15 +140,6 @@ const ServicePage: React.FC<ServicePageProps> = ({ currentLang = 'en' }) => {
             <p>{service.fullDescription[lang]}</p>
           </div>
 
-          <div className={styles.features}>
-            <h2>{lang === 'en' ? 'What We Offer' : 'Što Nudimo'}</h2>
-            <ul>
-              {service.features[lang].map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
-          </div>
-
           <div className={styles.cta}>
             {'website' in service && service.website ? (
               <a
@@ -152,7 +148,9 @@ const ServicePage: React.FC<ServicePageProps> = ({ currentLang = 'en' }) => {
                 rel="noreferrer"
                 className={styles.secondaryCtaButton}
               >
-                {lang === 'en' ? 'Visit Website' : 'Posjetite Web Stranicu'}
+                {'websiteLabel' in service && service.websiteLabel
+                  ? service.websiteLabel[lang]
+                  : (lang === 'en' ? 'Visit Website' : 'Posjetite Web Stranicu')}
               </a>
             ) : null}
             <a href={homeContactHref} className={styles.ctaButton}>{lang === 'en' ? 'Get in Touch' : 'Kontaktirajte Nas'}</a>
