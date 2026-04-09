@@ -32,16 +32,12 @@ const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
 
   const content = {
     eyebrow: {
-      en: "Premium service direction",
-      hr: "Premium usmjerenje usluga",
+      en: "More services. One standard of excellence.",
+      hr: "Više usluga. Jedan standard izvrsnosti.",
     },
     title: {
       en: "REGNUM DECIMARUM",
       hr: "REGNUM DECIMARUM",
-    },
-    description: {
-      en: "A refined portfolio of digital, hospitality, construction, and private transport services delivered with precision, presence, and passion.",
-      hr: "Rafinirani portfelj digitalnih, ugostiteljskih, građevinskih i privatnih prijevoznih usluga isporučenih s preciznošću, prisutnošću i strašću.",
     },
     exploreBtn: {
       en: "Explore services",
@@ -71,7 +67,6 @@ const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
       <div className={styles.heroCopy}>
         <p className={styles.eyebrow}>{content.eyebrow[lang]}</p>
         <h1>{content.title[lang]}</h1>
-        <p className={styles.heroText}>{content.description[lang]}</p>
         <div className={styles.heroActions}>
           <a className={styles.btnPrimary} href="#services">
             {content.exploreBtn[lang]}

@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = ({ currentLang = 'en' }) => {
         paragraphs: [
           '<strong>Information Collection:</strong> Regnum Decimarum respects your privacy and collects only the <em>minimum data</em> required to provide this site experience. We do not sell your personal information.',
           '<strong>Data Usage:</strong> Information is collected through contact forms and cookies needed to support functional site behavior. All form submissions are used <em>only</em> to respond to inquiries and manage service requests.',
-          '<strong>Your Rights:</strong> You can request removal of your contact information at any time by emailing <strong>hello@regnumdecimarum.com</strong>.',
+          '<strong>Your Rights:</strong> You can request removal of your contact information at any time by emailing <strong>info@regnumdecimarum.com</strong>.',
         ],
       },
       hr: {
@@ -25,7 +25,7 @@ const Footer: React.FC<FooterProps> = ({ currentLang = 'en' }) => {
         paragraphs: [
           '<strong>Prikupljanje Informacija:</strong> Regnum Decimarum poštuje vašu privatnost i prikuplja samo <em>minimalne podatke</em> potrebne za pružanje iskustva ove stranice. Ne prodajemo vaše osobne podatke.',
           '<strong>Korištenje Podataka:</strong> Informacije se prikupljaju putem kontaktnih obrazaca i kolačića potrebnih za podršku funkcionalnom ponašanju stranice. Sve predaje obrazaca koriste se <em>isključivo</em> za odgovaranje na upite i upravljanje zahtjevima za usluge.',
-          '<strong>Vaša Prava:</strong> Možete zatražiti uklanjanje svojih kontaktnih podataka u bilo kojem trenutku slanjem e-pošte na <strong>hello@regnumdecimarum.com</strong>.',
+          '<strong>Vaša Prava:</strong> Možete zatražiti uklanjanje svojih kontaktnih podataka u bilo kojem trenutku slanjem e-pošte na <strong>info@regnumdecimarum.com</strong>.',
         ],
       }
     },

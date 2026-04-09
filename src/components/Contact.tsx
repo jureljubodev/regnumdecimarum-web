@@ -48,7 +48,7 @@ const Contact: React.FC<ContactProps> = ({ currentLang = 'en' }) => {
           <div className={styles.contactList}>
             <div>
               <span>{content.contact.email[lang]}</span>
-              <strong>hello@regnumdecimarum.com</strong>
+              <strong>info@regnumdecimarum.com</strong>
             </div>
             <div>
               <span>{content.contact.location[lang]}</span>

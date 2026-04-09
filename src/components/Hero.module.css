@@ -19,7 +19,7 @@
 }
 
 .heroCopy h1 {
-  margin: 0;
+  margin: 0 0 1.1rem;
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4.2rem);
   line-height: 1.02;
@@ -28,10 +28,10 @@
 
 .heroText {
   max-width: 42rem;
-  font-size: 0.95rem;
+  font-size: clamp(1.12rem, 2.2vw, 1.45rem);
   margin: 1.25rem 0 1.5rem;
   color: var(--text-muted);
-  line-height: 1.75;
+  line-height: 1.55;
 }
 
 .heroActions {
@@ -119,6 +119,7 @@
   }
 
   .heroText {
+    font-size: clamp(1.02rem, 4.2vw, 1.2rem);
     margin: 1.2rem 0 1.4rem;
   }
 
@@ -147,6 +148,7 @@
   }
 
   .heroText {
+    font-size: 1.02rem;
     margin: 1.2rem 0 1.5rem;
   }
 
