@@ -9,6 +9,7 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
   const [particleCount, setParticleCount] = useState(25);
   const [connectionDistance, setConnectionDistance] = useState(140);
+  const [showParticles, setShowParticles] = useState(false);
 
   useEffect(() => {
     const calculateParticleCount = () => {
@@ -28,6 +29,11 @@ const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
     calculateParticleCount();
     window.addEventListener("resize", calculateParticleCount);
     return () => window.removeEventListener("resize", calculateParticleCount);
+  }, []);
+
+  useEffect(() => {
+    const idle = window.setTimeout(() => setShowParticles(true), 400);
+    return () => clearTimeout(idle);
   }, []);
 
   const content = {
@@ -57,13 +63,15 @@ const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
 
   return (
     <section className={styles.hero} id="home">
-      <Particles
-        particleCount={particleCount}
-        particleSize={3}
-        speed={0.2}
-        mouseRadius={180}
-        connectionDistance={connectionDistance}
-      />
+      {showParticles ? (
+        <Particles
+          particleCount={particleCount}
+          particleSize={3}
+          speed={0.2}
+          mouseRadius={180}
+          connectionDistance={connectionDistance}
+        />
+      ) : null}
       <div className={styles.heroCopy}>
         <p className={styles.eyebrow}>{content.eyebrow[lang]}</p>
         <h1>{content.title[lang]}</h1>
