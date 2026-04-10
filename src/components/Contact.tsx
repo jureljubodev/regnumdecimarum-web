@@ -26,8 +26,7 @@ const Contact: React.FC<ContactProps> = ({ currentLang = 'en' }) => {
       send: { en: 'Send message', hr: 'Pošalji poruku' }
     },
     contact: {
-      email: { en: 'Email:', hr: 'Email:' },
-      location: { en: 'Location:', hr: 'Lokacija:' }
+      email: { en: 'Email:', hr: 'Email:' }
     }
   };
 
@@ -49,10 +48,6 @@ const Contact: React.FC<ContactProps> = ({ currentLang = 'en' }) => {
             <div>
               <span>{content.contact.email[lang]}</span>
               <strong>info@regnumdecimarum.com</strong>
-            </div>
-            <div>
-              <span>{content.contact.location[lang]}</span>
-              <strong>Ilica 75, 10000 Zagreb</strong>
             </div>
           </div>
         </div>

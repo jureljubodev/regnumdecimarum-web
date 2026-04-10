@@ -61,29 +61,29 @@ const ServicePage: React.FC<ServicePageProps> = ({ currentLang = "en" }) => {
     hospitality: {
       title: { en: "PalachinqO", hr: "PalachinqO" },
       description: {
-        en: "PalachinqO is a pancake restaurant in the heart of Zagreb, next to Mali plac - Britanac, created around warmth, simplicity, and flavors people already love.",
-        hr: "Dobrodošli u PalachinqO – palačinkarnicu smještenu u srcu Zagreba, uz Mali plac - Britanac.",
+        en: "PalachinqO is a pancake concept created around warmth, simplicity, and flavors people already love.",
+        hr: "Dobrodošli u PalachinqO – koncept palačinki stvoren oko topline, jednostavnosti i okusa koje svi vole.",
       },
       fullDescription: {
-        en: "PalachinqO was built from the idea that pancakes are more than a quick meal. They are memory, tradition, and a small moment of comfort. The concept stays intentionally close to a proven homemade recipe, with no unnecessary complications and no trend-driven shortcuts. The result is a place that feels familiar, warm, and easy to return to, whether guests come for something sweet, a relaxed drink, or a casual stop in central Zagreb.",
+        en: "PalachinqO was built from the idea that pancakes are more than a quick meal. They are memory, tradition, and a small moment of comfort. The concept stays intentionally close to a proven homemade recipe, with no unnecessary complications and no trend-driven shortcuts. The result is a place that feels familiar, warm, and easy to return to, whether guests come for something sweet or a relaxed drink.",
         hr: "PalachinqO je nastao iz želje za nečim toplim, jednostavnim i poznatim – palačinkama, koje nisu samo hrana, nego uspomena, tradicija i trenutak… samo za sebe.",
       },
       features: {
         en: [
-          "Ilica 75, Zagreb",
-          "Near Britanac market",
           "Homemade pancake recipe",
           "Sweet menu selection",
           "Drinks menu",
+          "Warm and familiar atmosphere",
           "Order via Wolt",
+          "Brand experience",
         ],
         hr: [
-          "Ilica 75, Zagreb",
-          "Uz Britanac",
           "Domaća receptura palačinki",
           "Ponuda slatkih palačinki",
           "Ponuda pića",
+          "Topla i poznata atmosfera",
           "Narudžba preko Wolta",
+          "Brend iskustvo",
         ],
       },
       image: hospitalityImg,

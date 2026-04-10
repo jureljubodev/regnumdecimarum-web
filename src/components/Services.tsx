@@ -52,8 +52,8 @@ const Services: React.FC<ServicesProps> = ({ currentLang }) => {
           hr: "PalachinqO",
         },
         description: {
-          en: "A Zagreb pancake restaurant built around warm, familiar flavors, a house-made recipe, and a relaxed experience near Britanac.",
-          hr: "Zagrebačka palačinkarnica izgrađena oko toplih, poznatih okusa, domaće recepture i opuštenog iskustva uz Britanac.",
+          en: "A pancake concept built around warm, familiar flavors, a house-made recipe, and a relaxed guest experience.",
+          hr: "Koncept palačinki izgrađen oko toplih, poznatih okusa, domaće recepture i opuštenog iskustva za goste.",
         },
       },
       interior: {
