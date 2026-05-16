@@ -1,41 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "./Hero.module.css";
-import Particles from "./Particles";
 
 interface HeroProps {
   currentLang?: string;
 }
 
 const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
-  const [particleCount, setParticleCount] = useState(22);
-  const [connectionDistance, setConnectionDistance] = useState(140);
-  const [showParticles, setShowParticles] = useState(false);
-
-  useEffect(() => {
-    const calculateParticleCount = () => {
-      const width = window.innerWidth;
-      if (width < 640) {
-        setParticleCount(8); // Mobile: keep visual effect with lighter cost
-        setConnectionDistance(78); // Smaller connection radius on mobile
-      } else if (width < 1024) {
-        setParticleCount(18); // Tablet: moderate
-        setConnectionDistance(108);
-      } else {
-        setParticleCount(26); // Desktop
-        setConnectionDistance(140);
-      }
-    };
-
-    calculateParticleCount();
-    window.addEventListener("resize", calculateParticleCount);
-    return () => window.removeEventListener("resize", calculateParticleCount);
-  }, []);
-
-  useEffect(() => {
-    const idle = window.setTimeout(() => setShowParticles(true), 400);
-    return () => clearTimeout(idle);
-  }, []);
-
   const content = {
     eyebrow: {
       en: "More services. One standard of excellence.",
@@ -63,15 +33,6 @@ const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
 
   return (
     <section className={styles.hero} id="home">
-      {showParticles ? (
-        <Particles
-          particleCount={particleCount}
-          particleSize={3}
-          speed={0.2}
-          mouseRadius={180}
-          connectionDistance={connectionDistance}
-        />
-      ) : null}
       <div className={styles.heroCopy}>
         <p className={styles.eyebrow}>{content.eyebrow[lang]}</p>
         <h1>{content.title[lang]}</h1>
