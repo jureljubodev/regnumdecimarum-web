@@ -23,10 +23,6 @@ const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
       en: "Book a consultation",
       hr: "Rezervirajte konzultacije",
     },
-    tags: {
-      en: ["Digital", "Hospitality", "Construction", "Transport", "AC Cleaning"],
-      hr: ["Digitalno", "Ugostiteljstvo", "Završni radovi", "Prijevoz", "Čišćenje klima uređaja"],
-    },
   };
 
   const lang = currentLang as "en" | "hr";
@@ -43,11 +39,6 @@ const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
           <a className={styles.btnSecondary} href="#contact">
             {content.consultationBtn[lang]}
           </a>
-        </div>
-        <div className={styles.heroTags}>
-          {content.tags[lang].map((tag, index) => (
-            <span key={index}>{tag}</span>
-          ))}
         </div>
       </div>
     </section>
