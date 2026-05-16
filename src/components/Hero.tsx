@@ -7,7 +7,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
-  const [particleCount, setParticleCount] = useState(25);
+  const [particleCount, setParticleCount] = useState(22);
   const [connectionDistance, setConnectionDistance] = useState(140);
   const [showParticles, setShowParticles] = useState(false);
 
@@ -15,13 +15,13 @@ const Hero: React.FC<HeroProps> = ({ currentLang = "en" }) => {
     const calculateParticleCount = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        setParticleCount(10); // Mobile: drastically reduced
-        setConnectionDistance(100); // Smaller connection radius on mobile
+        setParticleCount(8); // Mobile: keep visual effect with lighter cost
+        setConnectionDistance(78); // Smaller connection radius on mobile
       } else if (width < 1024) {
-        setParticleCount(30); // Tablet: moderately reduced
-        setConnectionDistance(120);
+        setParticleCount(18); // Tablet: moderate
+        setConnectionDistance(108);
       } else {
-        setParticleCount(30); // Desktop: full count
+        setParticleCount(26); // Desktop
         setConnectionDistance(140);
       }
     };

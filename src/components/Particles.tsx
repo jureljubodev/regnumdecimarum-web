@@ -18,6 +18,7 @@ const Particles: React.FC<ParticlesProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | null>(null);
+  const frameTickRef = useRef(0);
   const particlesRef = useRef<Array<{
     x: number;
     y: number;
@@ -36,20 +37,34 @@ const Particles: React.FC<ParticlesProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const isSmallScreen = window.matchMedia('(max-width: 760px)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isLowPowerMode = isSmallScreen || reduceMotion;
+    const mouseRadiusSquared = mouseRadius * mouseRadius;
+    const connectionDistanceSquared = connectionDistance * connectionDistance;
+
     const resizeCanvas = () => {
       // Only cover hero section area, not full viewport
       const heroSection = document.querySelector('#home');
+      const pixelRatio = isLowPowerMode ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
+
       if (heroSection) {
         const rect = heroSection.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
+        canvas.width = Math.max(1, Math.floor(rect.width * pixelRatio));
+        canvas.height = Math.max(1, Math.floor(rect.height * pixelRatio));
+        canvas.style.width = `${rect.width}px`;
+        canvas.style.height = `${rect.height}px`;
         canvas.style.position = 'absolute';
         canvas.style.top = '0';
         canvas.style.left = '0';
       } else {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = Math.max(1, Math.floor(window.innerWidth * pixelRatio));
+        canvas.height = Math.max(1, Math.floor(window.innerHeight * pixelRatio));
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
       }
+
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
     };
 
     const createParticles = () => {
@@ -60,7 +75,7 @@ const Particles: React.FC<ParticlesProps> = ({
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * speed,
           vy: (Math.random() - 0.5) * speed,
-          size: particleSize + Math.random() * 1.5, // More uniform circular size
+          size: particleSize + Math.random() * (isLowPowerMode ? 1 : 1.5), // Keep size variation but lighter on low power
           opacity: Math.random() * 0.3 + 0.1,
           baseOpacity: Math.random() * 0.3 + 0.1
         });
@@ -82,9 +97,10 @@ const Particles: React.FC<ParticlesProps> = ({
         // Mouse interaction - more noticeable
         const dx = mouseRef.current.x - particle.x;
         const dy = mouseRef.current.y - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        const distanceSquared = dx * dx + dy * dy;
 
-        if (distance < mouseRadius) {
+        if (!isLowPowerMode && distanceSquared < mouseRadiusSquared) {
+          const distance = Math.sqrt(distanceSquared) || 1;
           const force = (mouseRadius - distance) / mouseRadius;
           particle.opacity = Math.min(0.9, particle.baseOpacity + force * 0.8); // More visible reaction
           // Add slight attraction to mouse
@@ -104,17 +120,18 @@ const Particles: React.FC<ParticlesProps> = ({
 
           const dx = p1.x - p2.x;
           const dy = p1.y - p2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+          const distanceSquared = dx * dx + dy * dy;
 
-          if (distance < connectionDistance) {
+          if (distanceSquared < connectionDistanceSquared) {
+            const distance = Math.sqrt(distanceSquared);
             // Calculate opacity based on distance (closer = more opaque)
-            const opacity = (1 - distance / connectionDistance) * 0.3;
+            const opacity = (1 - distance / connectionDistance) * (isLowPowerMode ? 0.2 : 0.3);
 
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.lineWidth = isLowPowerMode ? 0.4 : 0.5;
             ctx.stroke();
           }
         }
@@ -137,12 +154,20 @@ const Particles: React.FC<ParticlesProps> = ({
     };
 
     const animate = () => {
+      if (isLowPowerMode) {
+        frameTickRef.current = (frameTickRef.current + 1) % 2;
+        if (frameTickRef.current === 1) {
+          animationRef.current = requestAnimationFrame(animate);
+          return;
+        }
+      }
+
       updateParticles();
       drawParticles();
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const handlePointerMove = (e: PointerEvent) => {
       const heroSection = document.querySelector('#home');
       if (heroSection) {
         const rect = heroSection.getBoundingClientRect();
@@ -165,11 +190,13 @@ const Particles: React.FC<ParticlesProps> = ({
     animate();
 
     // Event listeners
-    window.addEventListener('mousemove', handleMouseMove);
+    if (!isLowPowerMode) {
+      window.addEventListener('pointermove', handlePointerMove, { passive: true });
+    }
     window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('pointermove', handlePointerMove);
       window.removeEventListener('resize', handleResize);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -178,19 +205,7 @@ const Particles: React.FC<ParticlesProps> = ({
   }, [particleCount, particleSize, speed, mouseRadius, connectionDistance]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className={styles.particles}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',
-        zIndex: 1
-      }}
-    />
+    <canvas ref={canvasRef} className={styles.particles} />
   );
 };
 

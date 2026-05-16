@@ -61,12 +61,12 @@ const ServicePage: React.FC<ServicePageProps> = ({ currentLang = "en" }) => {
     hospitality: {
       title: { en: "PalachinqO", hr: "PalachinqO" },
       description: {
-        en: "PalachinqO is a pancake concept created around warmth, simplicity, and flavors people already love.",
-        hr: "Dobrodošli u PalachinqO – koncept palačinki stvoren oko topline, jednostavnosti i okusa koje svi vole.",
+        en: "PalachinqO is where classic pancakes meet modern energy: cozy, playful, and unapologetically delicious from the first bite.",
+        hr: "Dobrodošli u PalachinqO – palačinkarnicu smještenu u srcu Zagreba, uz Mali plac - Britanac.",
       },
       fullDescription: {
-        en: "PalachinqO was built from the idea that pancakes are more than a quick meal. They are memory, tradition, and a small moment of comfort. The concept stays intentionally close to a proven homemade recipe, with no unnecessary complications and no trend-driven shortcuts. The result is a place that feels familiar, warm, and easy to return to, whether guests come for something sweet or a relaxed drink.",
-        hr: "PalachinqO je nastao iz želje za nečim toplim, jednostavnim i poznatim – palačinkama, koje nisu samo hrana, nego uspomena, tradicija i trenutak… samo za sebe.",
+        en: "PalachinqO started with one clear idea: pancakes should feel like an experience, not a routine stop. Every plate is built on a trusted homemade base, then elevated with carefully chosen flavors, textures, and presentation that guests remember. The space is designed to feel lively yet comfortable, perfect for a quick sweet break, a relaxed drink, or an evening catch-up. In short, PalachinqO turns familiar comfort food into a signature brand moment people want to revisit.",
+        hr: "PalachinqO je nastao s jednom jasnom idejom: palačinke trebaju biti doživljaj, a ne usputna stanica. Svaki tanjur temelji se na provjerenoj domaćoj recepturi, a zatim se podiže pažljivo biranim okusima, teksturama i prezentacijom koja se pamti. Prostor je osmišljen da bude živahan, ali ugodan, idealan za brzu slatku pauzu, opušteno piće ili večernje druženje. Ukratko, PalachinqO poznatu comfort hranu pretvara u prepoznatljivo brend iskustvo kojem se gosti vraćaju.",
       },
       features: {
         en: [
