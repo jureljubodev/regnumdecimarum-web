@@ -89,7 +89,7 @@ const Services: React.FC<ServicesProps> = ({ currentLang }) => {
         },
         description: {
           en: "Clean Master delivers intensive chemical and deep-cleaning services for homes, offices, and commercial spaces, restoring surfaces, removing stubborn buildup, and leaving every space truly refreshed.",
-          hr: "Clean Master pruža intenzivne usluge kemijskog i dubinskog čišćenja za domove, urede i poslovne prostore, uklanja tvrdokornu prljavštinu i vraća prostoru osjećaj potpune svježine.",
+          hr: "Tražite profesionalno kemijsko i dubinsko čišćenje tapeciranog namještaja? Uklanjamo mrlje, neugodne mirise i dubinsku prljavštinu; te Vašem namještaju vraćamo svježinu, čistoću i uredan izgled.",
         },
       },
     },

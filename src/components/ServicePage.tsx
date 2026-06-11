@@ -204,7 +204,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ currentLang = "en" }) => {
       },
       description: {
         en: "Clean Master provides thorough chemical and deep-cleaning services that target what regular cleaning leaves behind.",
-        hr: "Clean Master pruža temeljite usluge kemijskog i dubinskog čišćenja koje ciljano uklanjaju ono što redovno čišćenje ne može.",
+        hr: "Tražite profesionalno kemijsko i dubinsko čišćenje tapeciranog namještaja? Uklanjamo mrlje, neugodne mirise i dubinsku prljavštinu; te Vašem namještaju vraćamo svježinu, čistoću i uredan izgled.",
       },
       fullDescription: {
         en: "From high-traffic homes to demanding business environments, Clean Master is focused on restoring spaces to a visibly cleaner, healthier standard. We combine professional-grade chemistry, deep extraction methods, and careful finishing to remove buildup, stains, odors, and hidden dirt from surfaces and textiles. The outcome is not just a cleaner look, but a space that feels renewed, hygienic, and ready for daily life or customer use.",
