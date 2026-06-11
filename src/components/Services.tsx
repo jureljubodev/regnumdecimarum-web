@@ -2,6 +2,7 @@ import React from "react";
 import {
   AirVent,
   CarFront,
+  Droplets,
   Hammer,
   MonitorSmartphone,
   UtensilsCrossed,
@@ -17,9 +18,10 @@ const Services: React.FC<ServicesProps> = ({ currentLang }) => {
   const serviceIcons = {
     digital: MonitorSmartphone,
     hospitality: UtensilsCrossed,
-    interior: Hammer,
     transport: CarFront,
+    interior: Hammer,
     ac: AirVent,
+    cleanmaster: Droplets,
   };
 
   const content = {
@@ -80,6 +82,16 @@ const Services: React.FC<ServicesProps> = ({ currentLang }) => {
           hr: "Profesionalne usluge čišćenja i održavanja klima uređaja za optimalne performanse i kvalitetu zraka u prostoru.",
         },
       },
+      cleanmaster: {
+        title: {
+          en: "Chemical & Deep Cleaning - Clean Master",
+          hr: "Kemijsko i Dubinsko Čišćenje - Clean Master",
+        },
+        description: {
+          en: "Clean Master delivers intensive chemical and deep-cleaning services for homes, offices, and commercial spaces, restoring surfaces, removing stubborn buildup, and leaving every space truly refreshed.",
+          hr: "Clean Master pruža intenzivne usluge kemijskog i dubinskog čišćenja za domove, urede i poslovne prostore, uklanja tvrdokornu prljavštinu i vraća prostoru osjećaj potpune svježine.",
+        },
+      },
     },
   };
 
@@ -87,9 +99,10 @@ const Services: React.FC<ServicesProps> = ({ currentLang }) => {
   const serviceEntries = [
     { key: "digital", href: "/service/digital" },
     { key: "hospitality", href: "/service/hospitality" },
-    { key: "interior", href: "/service/interior" },
     { key: "transport", href: "/service/transport" },
+    { key: "interior", href: "/service/interior" },
     { key: "ac", href: "/service/ac" },
+    { key: "cleanmaster", href: "/service/clean-master" },
   ] as const;
 
   return (

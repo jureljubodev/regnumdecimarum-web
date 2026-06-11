@@ -6,6 +6,7 @@ import hospitalityImg from "../assets/palachinqo.webp";
 import interiorImg from "../assets/interior.jpeg";
 import transportImg from "../assets/car.webp";
 import acImg from "../assets/ac.jpeg";
+import kemiskoImg from "../assets/kemisko.jpeg";
 
 interface ServicePageProps {
   currentLang?: string;
@@ -195,6 +196,39 @@ const ServicePage: React.FC<ServicePageProps> = ({ currentLang = "en" }) => {
         ],
       },
       image: acImg,
+    },
+    "clean-master": {
+      title: {
+        en: "Chemical & Deep Cleaning - Clean Master",
+        hr: "Kemijsko i Dubinsko Čišćenje - Clean Master",
+      },
+      description: {
+        en: "Clean Master provides thorough chemical and deep-cleaning services that target what regular cleaning leaves behind.",
+        hr: "Clean Master pruža temeljite usluge kemijskog i dubinskog čišćenja koje ciljano uklanjaju ono što redovno čišćenje ne može.",
+      },
+      fullDescription: {
+        en: "From high-traffic homes to demanding business environments, Clean Master is focused on restoring spaces to a visibly cleaner, healthier standard. We combine professional-grade chemistry, deep extraction methods, and careful finishing to remove buildup, stains, odors, and hidden dirt from surfaces and textiles. The outcome is not just a cleaner look, but a space that feels renewed, hygienic, and ready for daily life or customer use.",
+        hr: "Od domova s velikom frekvencijom do zahtjevnih poslovnih prostora, Clean Master je usmjeren na vraćanje prostora na vidljivo čišći i zdraviji standard. Kombiniramo profesionalna sredstva, dubinske metode čišćenja i pažljivu završnu obradu kako bismo uklonili naslage, mrlje, neugodne mirise i skrivenu prljavštinu sa površina i tekstila. Rezultat nije samo čišći izgled, nego prostor koji djeluje obnovljeno, higijenski i spremno za svakodnevni život ili rad s klijentima.",
+      },
+      features: {
+        en: [
+          "Chemical Cleaning",
+          "Deep Extraction",
+          "Stain & Odor Removal",
+          "Textile and Surface Care",
+          "Residential & Commercial Service",
+          "Hygiene-Focused Finish",
+        ],
+        hr: [
+          "Kemijsko Čišćenje",
+          "Dubinsko Izvlačenje Nečistoća",
+          "Uklanjanje Mrlja i Mirisa",
+          "Njega Tekstila i Površina",
+          "Stambeni i Poslovni Prostori",
+          "Završna Higijenska Obrada",
+        ],
+      },
+      image: kemiskoImg,
     },
   };
 
